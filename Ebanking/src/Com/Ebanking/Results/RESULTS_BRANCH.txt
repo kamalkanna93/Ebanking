@@ -1,0 +1,7 @@
+BRANCHNAME###ADDRESS1###ZIPCODE###COUNTRY###STATE###CITY###RESULTS
+BANDHAN###PUNJAGUTTA OPP POLICE STN1###50000###INDIA###Andhra Pradesh###Hyderabad####New Branch with id 751 created Sucessfully
+BANDHAN1###PUNJAGUTTA OPP POLICE STN2###50001###INDIA###Andhra Pradesh###Hyderabad####New Branch with id 752 created Sucessfully
+BANDHAN2###PUNJAGUTTA OPP POLICE STN3###50002###INDIA###Andhra Pradesh###Hyderabad####New Branch with id 753 created Sucessfully
+BANDHAN3###PUNJAGUTTA OPP POLICE STN4###50003###INDIA###Andhra Pradesh###Hyderabad####New Branch with id 754 created Sucessfully
+BANDHAN4###PUNJAGUTTA OPP POLICE STN5###50004###INDIA###Andhra Pradesh###Hyderabad####New Branch with id 755 created Sucessfully
+BANDHAN5###PUNJAGUTTA OPP POLICE STN6###50005###INDIA###Andhra Pradesh###Hyderabad####New Branch with id 756 created Sucessfully

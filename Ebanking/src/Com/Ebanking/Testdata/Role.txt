@@ -1,0 +1,4 @@
+ROLENAME###ROLETYPE###RESULTS
+BManager###E
+ZManager###E
+SManager###E

@@ -1,0 +1,182 @@
+package mvnpackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class samplemvn 
+{
+	public static void main(String[] args) throws InterruptedException 
+	{
+	String expval="Ranford Bank";
+	
+	// launch firefox
+	WebDriver driver=new FirefoxDriver();
+	
+	//URL
+	driver.get("http://183.82.100.55/ranford2");
+	
+	//maximise 
+	
+	driver.manage().window().maximize(); 
+	
+	String actval=driver.findElement(By.xpath("/html/body/form/table/tbody/tr/td/table/tbody/tr[4]/td/table/tbody/tr[1]/td[4]/p/span")).getText();
+	
+	System.out.println(driver.getTitle());
+	 
+	//comparision
+	
+	if (expval.equalsIgnoreCase(actval))
+			{
+		System.out.println("Ranford Application succefully launched");
+			}
+	else {
+		System.out.println("Ranford Applivation Not Succefully Launched");
+			}
+	Thread.sleep(4000);
+	
+		//Admin login
+	
+	expval="Welcome to Admin";
+	
+	driver.findElement(By.id("txtuId")).sendKeys("Admin");
+	driver.findElement(By.id("txtPword")).sendKeys("M1ndq");
+	driver.findElement(By.id("login")).click();
+	
+	actval=driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td/table/tbody/tr[1]/td[4]/strong/font/font")).getText();
+	
+	//comparision
+	
+			if (expval.equalsIgnoreCase(actval))
+					{
+				System.out.println("Admin login sucessfully");
+					}
+			else {
+				System.out.println("Admin login failed");
+					}
+	
+		
+	// Branch creation
+	
+			expval="Sucessfully";
+			
+	driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td/a/img")).click();
+	driver.findElement(By.xpath("//*[@id=\"BtnNewBR\"]")).click();
+	driver.findElement(By.id("txtbName")).sendKeys("kamal153");
+	driver.findElement(By.id("txtAdd1")).sendKeys("ammerpet opp busstand,hyderabad");
+	driver.findElement(By.id("txtZip")).sendKeys("50003");
+	
+	//Dropdown
+	
+	Select ctry=new Select(driver.findElement(By.id("lst_counrtyU")));
+	ctry.selectByVisibleText("INDIA");
+	
+	Select ste=new Select(driver.findElement(By.id("lst_stateI")));
+	ste.selectByVisibleText("Andhra Pradesh");
+	
+	
+    Select cty=new Select(driver.findElement(By.id("lst_cityI")));
+	cty.selectByVisibleText("Hyderabad");
+	
+	driver.findElement(By.id("btn_insert")).click();
+	Thread.sleep(4000);
+	
+	//Alert
+	driver.switchTo().alert().getText();
+	
+	driver.switchTo().alert().accept();
+	
+	//comparision
+	
+	if (actval.contains(expval)) 
+	{
+		System.out.println("Branch Created Sucessfully");
+			
+	}
+	else {
+		System.out.println("Branch Already Exist");
+		}
+	
+	
+	//ROLE
+	expval="Sucessfully";
+	driver.findElement(By.xpath("/html/body/div/form/table/tbody/tr/td/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/table/tbody/tr[4]/td/a/img")).click();
+	
+	driver.findElement(By.id("btnRoles")).click();
+	
+	driver.findElement(By.id("txtRname")).sendKeys("kamalkanna");
+	
+	driver.findElement(By.id("txtRDesc")).sendKeys("loveyou");
+	
+    Select RTpe=new Select(driver.findElement(By.id("lstRtypeN")));
+	RTpe.selectByVisibleText("E");
+	
+	driver.findElement(By.id("btninsert")).click();
+	actval=driver.switchTo().alert().getText();
+	
+	driver.switchTo().alert().accept();
+	
+	//comparision
+	
+			if (actval.contains(expval)) 
+			{
+				System.out.println("Role Created Sucessfully");
+					
+			}
+			else {
+				System.out.println("Role Already Exist");
+				}
+	
+	
+	//employee
+	expval="Sucessfully";
+			
+	driver.findElement(By.xpath("/html/body/div/form/table/tbody/tr/td/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/table/tbody/tr[8]/td/a/img")).click();
+	driver.findElement(By.id("BtnNew")).click();
+	
+	driver.findElement(By.id("txtUname")).sendKeys("saikamal");
+	
+    driver.findElement(By.id("txtLpwd")).sendKeys("Kamal@123");
+	
+	Select Rle=new Select(driver.findElement(By.id("lst_Roles")));
+	Rle.selectByVisibleText("kamalkanna");
+	
+	Select BRc=new Select(driver.findElement(By.id("lst_Branch")));
+	BRc.selectByVisibleText("kamal143");
+	
+	driver.findElement(By.id("BtnSubmit")).click();
+	
+	actval=driver.switchTo().alert().getText();
+	
+	driver.switchTo().alert().accept();
+	
+	//comparision
+	
+	if (actval.contains(expval)) 
+	{
+		System.out.println("Eemployee Created Sucessfully");
+			
+	}
+	else {
+		System.out.println("Employee Already Exist");
+		}
+
+		
+	//Admin logout
+	
+	driver.findElement(By.xpath("/html/body/div/form/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td[3]/table/tbody/tr/td[3]/a/img")).click();
+
+
+	// Close
+	
+	driver.close();
+}
+
+
+
+
+}
+	
+
+	

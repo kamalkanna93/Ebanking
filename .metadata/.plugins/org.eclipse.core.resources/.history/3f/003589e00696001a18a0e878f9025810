@@ -1,0 +1,104 @@
+package Com.Ebanking.Masters;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.junit.Test;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class SeleniumGrid 
+
+{
+	
+	DesiredCapabilities Cap=null;
+	
+	@Test
+	
+	public void grid() throws MalformedURLException, InterruptedException 
+	{
+		Cap=new DesiredCapabilities();
+		Cap.setBrowserName("firefox");
+		Cap.setPlatform(Platform.WINDOWS);
+		
+		RemoteWebDriver driver=new RemoteWebDriver(new URL("http://192.168.0.7:4444/wd/hub"), Cap);
+		
+		driver.manage().window().maximize();
+		driver.get("http://183.82.100.55/ranford2");
+		
+		
+		RanfordHP RHP=PageFactory.initElements(driver, RanfordHP.class);
+		RHP.Login();
+		
+		 AdminHP AHP=PageFactory.initElements(driver, AdminHP.class);
+			AHP.Br();
+			
+		    Branchdetails BD=PageFactory.initElements(driver, Branchdetails.class);
+			BD.NEWB();
+			
+			Thread.sleep(4000);
+			
+			Branchcreation BC=PageFactory.initElements(driver, Branchcreation.class);
+			BC.Branchcrtn("Gachibowli","gachibowli","52563","INDIA","Andhra Pradesh","Hyderabad");
+			
+			Thread.sleep(4000);
+			
+			driver.switchTo().alert().accept();
+			
+			BD.Brnchhome();
+			
+			AdminHP AHP1=PageFactory.initElements(driver, AdminHP.class);
+			AHP1.Rol();
+			
+			Roledetails RD=PageFactory.initElements(driver, Roledetails.class);
+			RD.NewRole();
+			
+			Thread.sleep(4000);
+			
+			Rolecreation RC=PageFactory.initElements(driver, Rolecreation.class);
+			
+			RC.Rolecrtn("kanna","E");
+			
+			Thread.sleep(4000);
+			
+			driver.switchTo().alert().accept();
+			
+			RD.Rolehme();
+			
+			AdminHP AHP11=PageFactory.initElements(driver, AdminHP.class);
+			AHP11.Emp();
+			
+			Employeedetails ED=PageFactory.initElements(driver, Employeedetails.class);
+			ED.NEwbutton();
+			
+			Thread.sleep(4000);
+			
+			Employeecreation EC=PageFactory.initElements(driver, Employeecreation.class);
+			EC.EmpCreation("kanna","kamal123","kanna","Gachibowli");
+			
+			Thread.sleep(4000);
+			
+			driver.switchTo().alert().accept();
+			
+			ED.Emphome();
+			
+			AdminHP AHP111=PageFactory.initElements(driver, AdminHP.class);
+			AHP111.Lgout();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

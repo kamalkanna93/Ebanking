@@ -1,0 +1,38 @@
+package Com.Ebanking.Masters;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class SeleniumGrid 
+
+{
+	
+	DesiredCapabilities Cap=null;
+	
+	public void grid() throws MalformedURLException 
+	{
+		Cap=new DesiredCapabilities();
+		Cap.setBrowserName("firefox");
+		Cap.setPlatform(Platform.WINDOWS);
+		
+		RemoteWebDriver driver=new RemoteWebDriver(new URL("http://192.168.0.7:4444/wd/hub"), Cap);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
